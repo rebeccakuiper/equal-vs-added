@@ -131,7 +131,7 @@ gorica_lm <- goric(est, VCOV = VCOV,
 gorica_lm
 #The order-restricted hypothesis ‘H_123’ has 2.72 times more support than its complement.
 gorica_lm$ratio.lw
-# LLs not equal (ratio is approx. 1.183817)
+# LLs not equal but perhaps somewhat close (ratio is approx. 1.183817)
 
 
 ## Combined:
@@ -243,7 +243,8 @@ ggsave(
 
 ## Show case 1b: 1 outlier (last study) ##
 
-# Pas estimates aan (NB VCOV blijft gelijk):
+# Adjust estimates for last study, so for Study S 
+# (Note that VCOV stays the same)
 Param_studies_out <- Param_studies
 Param_studies_out[[S]][2:4] <- rev(Param_studies_out[[S]][2:4])
 #Param_studies_out
@@ -293,31 +294,6 @@ ggsave(
   height = 6,                                   # height in inches
   dpi = 300                                     # resolution
 )
-#
-# Check
-evS_equal_123_unc_out_asc <- evSyn(object = Param_studies_out, VCOV = CovMx_studies, 
-                               hypotheses = list(H_123 = H_123),
-                               type_ev = "equal", 
-                               comparison = "unconstrained",
-                               order_studies = "ascending") 
-summary(evS_equal_123_unc_out_asc)
-#evS_equal_123_unc_out_asc$Cumulative_GORICA_weights
-#evS_equal_123_unc_out_asc$Cumulative_GORICA
-plot(evS_equal_123_unc_out_asc)
-# Cum. GORICA values voor H123 nu -3.752 & -14.521
-# Moet zijn:
-# Cum. LL moet zijn (4.709 + 5.384) = 10.093
-# Cum PT weight (2.833+2.833)/2=2.833
-# -2 * 10.094 + 2 * 2.833 = -14.522 -- klopt dus!
-#
-# Check op added dan ook, daar gaat het ook goed:
-evS_added_123_unc_out_asc <- evSyn(object = Param_studies_out, VCOV = CovMx_studies, 
-                                   hypotheses = list(H_123 = H_123),
-                                   type_ev = "added", 
-                                   comparison = "unconstrained",
-                                   order_studies = "ascending") 
-summary(evS_added_123_unc_out_asc)
-# Cum. GORICA values voor H123 nu idd -3.752 & (-3.752 + -5.102) = -8.854
 #
 #
 H_123

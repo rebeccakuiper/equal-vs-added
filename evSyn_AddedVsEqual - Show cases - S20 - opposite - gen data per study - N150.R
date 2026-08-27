@@ -22,7 +22,8 @@ library("ggplot2")
 ###
 
 
-# NU NIET S keer zelfde data, maar S keer gesampeld.
+# Instead of having S times the same dataset (as in other showcases / R scripts),
+# this R scripts generates S times a dataset (from the same population)
 
 
 # Show case #
@@ -144,8 +145,11 @@ gorica_lm <- goric(est, VCOV = VCOV,
                    comparison = "complement",
                    type = 'gorica') 
 gorica_lm
+#The order-restricted hypothesis ‘H_123’ has less support 
+#(namely,  0.385 / 0.615 < 1 times more support) than its complement. 
+#That is, the complement has 1.60 times more support than ‘H_123’
 gorica_lm$ratio.lw
-
+# LLs not equal (ratio is approx. 3.727876)
 
 
 ## Combined:
@@ -258,132 +262,3 @@ ggsave(
   dpi = 300                                     # resolution
 )
 
-
-###################################################################################
-
-# Not done yet!!!
-
-# ## Show case 1b: 1 outlier (last study) ##
-# 
-# # Pas estimates aan (NB VCOV blijft gelijk):
-# Param_studies_out <- Param_studies
-# Param_studies_out[[S]][2:4] <- rev(Param_studies_out[[S]][2:4])
-# #Param_studies_out
-# #
-# #
-# H_123
-# # vs unc
-# #
-# evS_added_123_unc_out <- evSyn(object = Param_studies_out, VCOV = CovMx_studies, 
-#                            hypotheses = list(H_123 = H_123),
-#                            type_ev = "added", 
-#                            comparison = "unconstrained") 
-# evS_added_123_unc_out$Cumulative_GORICA_weights
-# evS_added_123_unc_out$Cumulative_GORICA
-# plot(evS_added_123_unc_out)
-# #png(paste0(name_folder, "/evS_added_123_unc_out_S", S, "_Opp.png"))
-# #plot(evS_added_123_unc_out)
-# #dev.off()
-# plot_evS_added_123_unc_out <- plot(evS_added_123_unc_out)
-# fileName <- paste0("evS_added_123_unc_out_S", S, "_Opp.png")
-# ggsave(
-#   filename = fileName,  # file name
-#   path = name_folder,
-#   plot = plot_evS_added_123_unc_out,             # the plot object
-#   width = 8,                                    # width in inches
-#   height = 6,                                   # height in inches
-#   dpi = 300                                     # resolution
-# )
-# #
-# evS_equal_123_unc_out <- evSyn(object = Param_studies_out, VCOV = CovMx_studies, 
-#                            hypotheses = list(H_123 = H_123),
-#                            type_ev = "equal", 
-#                            comparison = "unconstrained") 
-# evS_equal_123_unc_out$Cumulative_GORICA_weights
-# evS_equal_123_unc_out$Cumulative_GORICA
-# plot(evS_equal_123_unc_out)
-# #png(paste0(name_folder, "/evS_equal_123_unc_out_S", S, "_Opp.png"))
-# #plot(evS_equal_123_unc_out)
-# #dev.off()
-# plot_evS_equal_123_unc_out <- plot(evS_equal_123_unc_out)
-# fileName <- paste0("evS_equal_123_unc_out_S", S, "_Opp.png")
-# ggsave(
-#   filename = fileName,  # file name
-#   path = name_folder,
-#   plot = plot_evS_equal_123_unc_out,             # the plot object
-#   width = 8,                                    # width in inches
-#   height = 6,                                   # height in inches
-#   dpi = 300                                     # resolution
-# )
-# #
-# # Check
-# evS_equal_123_unc_out_asc <- evSyn(object = Param_studies_out, VCOV = CovMx_studies, 
-#                                hypotheses = list(H_123 = H_123),
-#                                type_ev = "equal", 
-#                                comparison = "unconstrained",
-#                                order_studies = "ascending") 
-# summary(evS_equal_123_unc_out_asc)
-# #evS_equal_123_unc_out_asc$Cumulative_GORICA_weights
-# #evS_equal_123_unc_out_asc$Cumulative_GORICA
-# plot(evS_equal_123_unc_out_asc)
-# # Cum. GORICA values voor H123 nu -3.752 & -14.521
-# # Moet zijn:
-# # Cum. LL moet zijn (4.709 + 5.384) = 10.093
-# # Cum PT weight (2.833+2.833)/2=2.833
-# # -2 * 10.094 + 2 * 2.833 = -14.522 -- klopt dus!
-# #
-# # Check op added dan ook, daar gaat het ook goed:
-# evS_added_123_unc_out_asc <- evSyn(object = Param_studies_out, VCOV = CovMx_studies, 
-#                                    hypotheses = list(H_123 = H_123),
-#                                    type_ev = "added", 
-#                                    comparison = "unconstrained",
-#                                    order_studies = "ascending") 
-# summary(evS_added_123_unc_out_asc)
-# # Cum. GORICA values voor H123 nu idd -3.752 & (-3.752 + -5.102) = -8.854
-# #
-# #
-# H_123
-# # vs its compl
-# #
-# evS_added_123_out <- evSyn(object = Param_studies_out, VCOV = CovMx_studies, 
-#                        hypotheses = list(H_123 = H_123),
-#                        type_ev = "added", 
-#                        comparison = "complement") 
-# evS_added_123_out$Cumulative_GORICA_weights
-# evS_added_123_out$Cumulative_GORICA
-# plot(evS_added_123_out)
-# #png(paste0(name_folder, "/evS_added_123_out_S", S, "_Opp.png"))
-# #plot(evS_added_123_out)
-# #dev.off()
-# plot_evS_added_123_compl_out <- plot(evS_added_123_out)
-# fileName <- paste0("evS_added_123_compl_out_S", S, "_Opp.png")
-# ggsave(
-#   filename = fileName,  # file name
-#   path = name_folder,
-#   plot = plot_evS_added_123_compl_out,             # the plot object
-#   width = 8,                                    # width in inches
-#   height = 6,                                   # height in inches
-#   dpi = 300                                     # resolution
-# )
-# #
-# evS_equal_123_out <- evSyn(object = Param_studies_out, VCOV = CovMx_studies, 
-#                        hypotheses = list(H_123 = H_123),
-#                        type_ev = "equal", 
-#                        comparison = "complement") 
-# evS_equal_123_out$Cumulative_GORICA_weights
-# evS_equal_123_out$Cumulative_GORICA
-# plot(evS_equal_123_out) 
-# #png(paste0(name_folder, "/evS_equal_123_out_S", S, "_Opp.png"))
-# #plot(evS_equal_123_out)
-# #dev.off()
-# plot_evS_equal_123_compl_out <- plot(evS_equal_123_out)
-# fileName <- paste0("evS_equal_123_compl_out_S", S, "_Opp.png")
-# ggsave(
-#   filename = fileName,  # file name
-#   path = name_folder,
-#   plot = plot_evS_equal_123_compl_out,             # the plot object
-#   width = 8,                                    # width in inches
-#   height = 6,                                   # height in inches
-#   dpi = 300                                     # resolution
-# )
-# 

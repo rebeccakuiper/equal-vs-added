@@ -133,7 +133,7 @@ gorica_lm
 #The order-restricted hypothesis ‘H_123’ has less support (namely,  0.405 / 0.595 < 1 times more support) than its complement. That is, the complement has 1.47 times more support than ‘H_123’
 gorica_lm$ratio.lw
 # LLs not equal (ratio is approx. 3.375765)
-# Max LL ook voor complement
+# Note(!): order-restricted max loglik is highest (max) for the true and also supported complement!
 
 
 ## Combined:
@@ -245,7 +245,8 @@ ggsave(
 
 ## Show case 1b: 1 outlier (last study) ##
 
-# Pas estimates aan (NB VCOV blijft gelijk):
+# Adjust estimates for last study, so for Study S 
+# (Note that VCOV stays the same)
 Param_studies_out <- Param_studies
 Param_studies_out[[S]][2:4] <- rev(Param_studies_out[[S]][2:4])
 #Param_studies_out
