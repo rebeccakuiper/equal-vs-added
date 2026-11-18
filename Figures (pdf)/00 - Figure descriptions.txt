@@ -1,0 +1,134 @@
+Figures (pdf) - Short descriptions of the figures
+Manuscript: "Two Types of Overall Evidence for a Central Theory using an AIC-type Criterion" (R. M. Kuiper)
+===============================================================================================
+
+All figures are vector-graphics PDF files, created with R (ggplot2 for Figures 1-5; base
+graphics for Figures 6-8). The full captions are in the manuscript; below, each figure is
+described briefly (these descriptions can also serve as alt-text). File names start with the
+figure number (and panel letter) used in the manuscript.
+
+Which R script creates which file (paths relative to the main folder of the R files):
+- Fig1a, Fig1b:            Sec 5-2-1 - Fig 1a-1b & App D - Tab 5 -- evSyn - S4.R
+- Fig1c, Fig1d, Fig5a, Fig5b:
+                           Sec 5-2-1 & 5-2-4 - Fig 1c-1d & 5a-5b & Tab 1 (C1a) & App D - Tab 5 -- evSyn - S20.R
+- Fig2a, Fig2b:            Sec 5-2-2 - Fig 2a-2b & App D - Tab 5 -- evSyn - S4 - opp.R
+- Fig2c, Fig2d, Fig5c, Fig5d:
+                           Sec 5-2-2 & 5-2-4 - Fig 2c-2d & 5c-5d & App D - Tab 5 -- evSyn - S20 - opp.R
+- Fig2e, Fig2f:            Sec 5-2-2 & 5-2-4 - Fig 2e-2f & Tab 1 (C2) & App D - Tab 5 -- evSyn - S20 - opp - N150.R
+- Fig3a, Fig3b:            Sec 5-2-3 - Fig 3a-3b & App D - Tab 5 -- evSyn - S20 - indep.R
+- Fig3c, Fig3d:            Sec 5-2-3 - Fig 3c-3d & App D - Tab 5 -- evSyn - S20 - opp - indep.R
+- Fig4a, Fig4b:            Sec 5-2-3 - Fig 4a-4b & App D - Tab 5 -- evSyn - S4 - indep.R
+- Fig4c, Fig4d:            Sec 5-2-3 - Fig 4c-4d & App D - Tab 5 -- evSyn - S4 - opp - indep.R
+- Fig6, Fig7:              Sec 6 - Sim evSyn vs GORICA on meta-an est/
+                           Sec 6 - Fig 6 & 7 -- Plots sim (K&C style).R
+- Fig8:                    App C - Sim K&C (adj & ext)/
+                           3 App C - Fig 8/App C - Fig 8 -- Equal vs Added in sim K&C.R
+
+
+-----------------------------------------------------------------------------------------------
+Figures 1-5 (showcases; output of the plot function for evSyn in restriktor)
+-----------------------------------------------------------------------------------------------
+General layout of each panel: a line plot with the studies (1 to S) on the x-axis and the GORICA
+weights (0 to 1) on the y-axis. For both hypotheses, H_123 (orange) and its complement (green),
+the cumulative (overall) GORICA weight after adding each study is shown as a line with dots, and
+the study-specific GORICA weight as triangles. A dashed horizontal line at 0.5 denotes equal support.
+Within each figure, the left panels (a, c, e) show the equal-evidence approach and the right
+panels (b, d, f) the added-evidence approach.
+
+Figure 1 - H_123 (true) versus its complement, S studies with the same dataset (n_s = 85).
+- Fig1a_evS_equal_123_compl_S4.pdf: equal-evidence, S = 4. Each study gives H_123 a weight of
+  0.73; the cumulative weight for H_123 rises slowly to 0.82 after four studies.
+- Fig1b_evS_added_123_compl_S4.pdf: added-evidence, S = 4. Same study-specific weights; the
+  cumulative weight for H_123 rises quickly to 0.98.
+- Fig1c_evS_equal_123_compl_S20.pdf: equal-evidence, S = 20. The cumulative weight for H_123
+  rises gradually to 0.99.
+- Fig1d_evS_added_123_compl_S20.pdf: added-evidence, S = 20. The cumulative weight for H_123
+  reaches (practically) 1 within a few studies.
+
+Figure 2 - H_123 (false) versus its (true) complement, S studies with the same dataset.
+- Fig2a_evS_equal_123_compl_S4_Opp.pdf: equal-evidence, S = 4, n_s = 85. Each study slightly
+  favours the false H_123 (0.54 vs 0.46), but the cumulative weight shifts towards the true
+  complement, reaching 0.87.
+- Fig2b_evS_added_123_compl_S4_Opp.pdf: added-evidence, S = 4, n_s = 85. The cumulative weight
+  for the false H_123 increases to 0.65.
+- Fig2c_evS_equal_123_compl_S20_Opp.pdf: equal-evidence, S = 20, n_s = 85. The cumulative
+  weight for the true complement increases to 1.00.
+- Fig2d_evS_added_123_compl_S20_Opp.pdf: added-evidence, S = 20, n_s = 85. The cumulative
+  weight for the false H_123 increases to 0.96.
+- Fig2e_evS_equal_123_compl_S20_Opp_N150.pdf: equal-evidence, S = 20, n_s = 150. Each study
+  favours the true complement (0.59); the cumulative weight for the complement quickly
+  approaches 1.
+- Fig2f_evS_added_123_compl_S20_Opp_N150.pdf: added-evidence, S = 20, n_s = 150. The cumulative
+  weight for the true complement also approaches 1, but more slowly than in panel e.
+
+Figure 3 - H_123 versus its complement, S = 20 independently generated datasets (n_s = 85);
+the studies are ordered by the study-specific support for the selected hypothesis, so the
+study-specific weights vary over the studies.
+- Fig3a_evS_equal_123_compl_S20_indep.pdf: equal-evidence, H_123 true. 19 of the 20 studies
+  favour H_123; the cumulative weight for H_123 ends at 0.80.
+- Fig3b_evS_added_123_compl_S20_indep.pdf: added-evidence, H_123 true. The cumulative weight for
+  H_123 reaches (practically) 1.
+- Fig3c_evS_equal_123_compl_S20_Opp_indep.pdf: equal-evidence, H_123 false. 14 of the 20 studies
+  favour the true complement; its cumulative weight reaches (practically) 1.
+- Fig3d_evS_added_123_compl_S20_Opp_indep.pdf: added-evidence, H_123 false. The cumulative weight
+  for the true complement also reaches (practically) 1.
+
+Figure 4 - H_123 versus its complement, S = 4 independently generated datasets (n_s = 85; the
+first four datasets of Figure 3).
+- Fig4a_evS_equal_123_compl_S4_indep.pdf: equal-evidence, H_123 true. All four studies favour
+  H_123; the cumulative weight for H_123 ends at 0.64.
+- Fig4b_evS_added_123_compl_S4_indep.pdf: added-evidence, H_123 true. The cumulative weight for
+  H_123 ends at 0.95.
+- Fig4c_evS_equal_123_compl_S4_Opp_indep.pdf: equal-evidence, H_123 false. Two of the four
+  studies favour the false H_123; the cumulative weight for the true complement ends at 0.94.
+- Fig4d_evS_added_123_compl_S4_Opp_indep.pdf: added-evidence, H_123 false. The cumulative weight
+  for the true complement ends at 0.61.
+
+Figure 5 - H_123 versus its complement, S = 20 studies with the same dataset (n_s = 85), of
+which the last study is an outlier study (estimates in the opposite ordering); the last
+study-specific weight therefore deviates from the others.
+- Fig5a_evS_equal_123_compl_out_S20.pdf: equal-evidence, H_123 true. The cumulative weight for
+  H_123 ends at 0.97 (the outlier study lowers it slightly at the end).
+- Fig5b_evS_added_123_compl_out_S20.pdf: added-evidence, H_123 true. The cumulative weight for
+  H_123 stays at (practically) 1.
+- Fig5c_evS_equal_123_compl_out_S20_Opp.pdf: equal-evidence, H_123 false. The cumulative weight
+  for the true complement increases to (practically) 1; the outlier study hardly changes this.
+- Fig5d_evS_added_123_compl_out_S20_Opp.pdf: added-evidence, H_123 false. The cumulative weight
+  for the false H_123 increases (as in Figure 2d); the outlier study hardly changes this.
+
+
+-----------------------------------------------------------------------------------------------
+Figures 6-8 (simulations)
+-----------------------------------------------------------------------------------------------
+Fig6_sim_weight_true_compl.pdf
+  Four panels (top: S = 20; bottom: S = 4; left: H_123 true; right: H_123 false, i.e., the
+  complement is true). Per study-specific sample size n_s (x-axis, 25 to 600, with breaks
+  between 150 and 300 and between 300 and 600), the median overall GORICA weight for the true
+  hypothesis (y-axis, 0 to 1) is shown for four methods next to each other: GORICA on
+  fixed-effect (FE) and random-effects (RE) meta-analyzed estimates, equal-evidence (Equal) and
+  added-evidence (Added). Whiskers show the 5th to 95th percentile; a dotted line marks 0.5.
+  Main pattern: the weights increase with n_s for all methods. When H_123 is true, Added gives
+  the highest weights and Equal the lowest; with S = 20, Equal is far below 0.5 for small n_s
+  (it then prefers the failsafe) and only approaches 1 for n_s = 300 and 600. When H_123 is
+  false, Equal gives the highest weights for the true complement.
+
+Fig7_sim_weight_false_compl.pdf
+  Eight panels (top: S = 20; bottom: S = 4; from left to right: FE, RE, Equal, Added). Per n_s
+  (x-axis, broken as in Figure 6), the median overall GORICA weight for the selected hypothesis
+  (y-axis, 0.5 to 1) is shown for all replications (o), for the true selection cases (t; green),
+  and for the false selection cases (f; red), with whiskers (5th to 95th percentile) for the
+  true and false selection cases. Red numbers on top give the percentage of false selection
+  cases. Main pattern: false selections mainly occur for small n_s, and the weight of the
+  selected hypothesis can be well above 0.5 also in false selection cases.
+
+Fig8_sim_KC_THR.pdf
+  Three panels with the true hypothesis rate (THR; y-axis, 0 to 1) of the added-evidence (black
+  squares) and equal-evidence (orange circles) approach in the simulations of Kuiper and Clapper.
+  (a) S = 4: THR per set of hypotheses (x-axis, in the order Sets 1, 4 | 2, 5, 7 | 3, 6, 8, as in
+  Kuiper and Clapper); dotted vertical lines separate the sets with hypotheses regarding one
+  parameter (1, 4), the sets where the failsafe is not true (2, 5, 7), and the sets where the
+  failsafe is (mostly) true (3, 6, 8). (b) and (c) S = 20 without
+  an outlier study: THR per n_s (25, 75, 200) for Set 5 (solid lines) and Set 4 (dashed lines),
+  when the central hypothesis is true (b) and when it is not true (c). Main pattern: in (a),
+  which approach has the higher THR differs per set; in (b), Equal has a much lower THR than
+  Added; in (c), Equal has the higher THR.

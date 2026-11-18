@@ -1,0 +1,38 @@
+Attaching kit 0.0.21 (OPENMP enabled using 1 thread)
+added : number of non-converged iterations: 0 
+equal : number of non-converged iterations: 0 
+
+THR Added: original run versus re-run
+overall: 0.621 vs 0.623 
+  sets correct_original correct_rerun
+1    1            0.612         0.615
+2    2            0.586         0.584
+3    3            0.291         0.293
+4    4            0.874         0.878
+5    5            0.679         0.678
+6    6            0.339         0.340
+7    8            0.865         0.864
+8    9            0.724         0.729
+    N correct_original correct_rerun
+1  25            0.517         0.520
+2  50            0.589         0.587
+3  75            0.629         0.632
+4 100            0.663         0.665
+5 150            0.709         0.710
+  true_R2 correct_original correct_rerun
+1    0.02            0.447         0.448
+2    0.15            0.671         0.672
+3    0.25            0.746         0.748
+   rho correct_original correct_rerun
+1 0.00            0.682         0.681
+2 0.25            0.621         0.622
+3 0.50            0.561         0.565
+   models correct_original correct_rerun
+1   equal            0.632         0.633
+2  hetero            0.622         0.625
+3 unequal            0.610         0.610
+  ratios correct_original correct_rerun
+1 ratio1            0.670         0.672
+2 ratio2            0.584         0.586
+3 ratio3            0.575         0.577
+4 ratio4            0.645         0.642

@@ -1,0 +1,117 @@
+Attaching kit 0.0.21 (OPENMP enabled using 1 thread)
+
+### hetero: per sets 
+
+
+|evidence | sets|variance           |   THR| medWt| conf_wrong|
+|:--------|----:|:------------------|-----:|-----:|----------:|
+|added    |    1|corrected          | 0.541| 0.513|      0.012|
+|added    |    1|original (swapped) | 0.568| 0.554|      0.010|
+|added    |    2|corrected          | 0.623| 0.607|      0.109|
+|added    |    2|original (swapped) | 0.648| 0.626|      0.091|
+|added    |    3|corrected          | 0.211| 0.078|      0.410|
+|added    |    3|original (swapped) | 0.232| 0.087|      0.388|
+|added    |    4|corrected          | 0.850| 0.885|      0.008|
+|added    |    4|original (swapped) | 0.859| 0.900|      0.008|
+|added    |    5|corrected          | 0.759| 0.688|      0.008|
+|added    |    5|original (swapped) | 0.766| 0.700|      0.008|
+|added    |    6|corrected          | 0.230| 0.107|      0.299|
+|added    |    6|original (swapped) | 0.250| 0.117|      0.289|
+|added    |    8|corrected          | 0.923| 0.928|      0.006|
+|added    |    8|original (swapped) | 0.927| 0.929|      0.005|
+|added    |    9|corrected          | 0.745| 0.748|      0.005|
+|added    |    9|original (swapped) | 0.753| 0.762|      0.004|
+|equal    |    1|corrected          | 0.812| 0.756|      0.009|
+|equal    |    1|original (swapped) | 0.815| 0.784|      0.008|
+|equal    |    2|corrected          | 0.502| 0.410|      0.053|
+|equal    |    2|original (swapped) | 0.508| 0.415|      0.049|
+|equal    |    3|corrected          | 0.744| 0.672|      0.000|
+|equal    |    3|original (swapped) | 0.753| 0.689|      0.000|
+|equal    |    4|corrected          | 0.850| 0.885|      0.008|
+|equal    |    4|original (swapped) | 0.859| 0.900|      0.008|
+|equal    |    5|corrected          | 0.509| 0.417|      0.049|
+|equal    |    5|original (swapped) | 0.514| 0.421|      0.051|
+|equal    |    6|corrected          | 0.750| 0.666|      0.000|
+|equal    |    6|original (swapped) | 0.755| 0.686|      0.000|
+|equal    |    8|corrected          | 0.516| 0.514|      0.054|
+|equal    |    8|original (swapped) | 0.525| 0.521|      0.052|
+|equal    |    9|corrected          | 0.852| 0.832|      0.002|
+|equal    |    9|original (swapped) | 0.855| 0.842|      0.002|
+
+### hetero: per N 
+
+
+|evidence |   N|variance           |   THR| medWt| conf_wrong|
+|:--------|---:|:------------------|-----:|-----:|----------:|
+|added    |  25|corrected          | 0.508| 0.484|      0.156|
+|added    |  25|original (swapped) | 0.517| 0.498|      0.150|
+|added    |  50|corrected          | 0.573| 0.579|      0.117|
+|added    |  50|original (swapped) | 0.586| 0.593|      0.112|
+|added    |  75|corrected          | 0.618| 0.653|      0.102|
+|added    |  75|original (swapped) | 0.635| 0.677|      0.094|
+|added    | 100|corrected          | 0.655| 0.714|      0.088|
+|added    | 100|original (swapped) | 0.671| 0.739|      0.080|
+|added    | 150|corrected          | 0.696| 0.792|      0.071|
+|added    | 150|original (swapped) | 0.717| 0.818|      0.065|
+|equal    |  25|corrected          | 0.598| 0.517|      0.032|
+|equal    |  25|original (swapped) | 0.607| 0.528|      0.032|
+|equal    |  50|corrected          | 0.662| 0.580|      0.025|
+|equal    |  50|original (swapped) | 0.670| 0.589|      0.025|
+|equal    |  75|corrected          | 0.698| 0.626|      0.021|
+|equal    |  75|original (swapped) | 0.704| 0.635|      0.019|
+|equal    | 100|corrected          | 0.731| 0.657|      0.018|
+|equal    | 100|original (swapped) | 0.734| 0.670|      0.016|
+|equal    | 150|corrected          | 0.771| 0.709|      0.014|
+|equal    | 150|original (swapped) | 0.775| 0.721|      0.014|
+
+### hetero: per true_R2 
+
+
+|evidence | true_R2|variance           |   THR| medWt| conf_wrong|
+|:--------|-------:|:------------------|-----:|-----:|----------:|
+|added    |    0.02|corrected          | 0.442| 0.391|      0.203|
+|added    |    0.02|original (swapped) | 0.455| 0.408|      0.189|
+|added    |    0.15|corrected          | 0.657| 0.699|      0.071|
+|added    |    0.15|original (swapped) | 0.675| 0.727|      0.066|
+|added    |    0.25|corrected          | 0.731| 0.827|      0.047|
+|added    |    0.25|original (swapped) | 0.746| 0.846|      0.046|
+|equal    |    0.02|corrected          | 0.543| 0.465|      0.041|
+|equal    |    0.02|original (swapped) | 0.549| 0.470|      0.040|
+|equal    |    0.15|corrected          | 0.733| 0.651|      0.015|
+|equal    |    0.15|original (swapped) | 0.741| 0.665|      0.015|
+|equal    |    0.25|corrected          | 0.800| 0.730|      0.010|
+|equal    |    0.25|original (swapped) | 0.804| 0.737|      0.009|
+
+### hetero: per ratios 
+
+
+|evidence |ratios |variance           |   THR| medWt| conf_wrong|
+|:--------|:------|:------------------|-----:|-----:|----------:|
+|added    |ratio1 |corrected          | 0.649| 0.705|      0.085|
+|added    |ratio1 |original (swapped) | 0.666| 0.733|      0.078|
+|added    |ratio2 |corrected          | 0.572| 0.579|      0.129|
+|added    |ratio2 |original (swapped) | 0.584| 0.592|      0.123|
+|equal    |ratio1 |corrected          | 0.742| 0.665|      0.017|
+|equal    |ratio1 |original (swapped) | 0.749| 0.677|      0.016|
+|equal    |ratio2 |corrected          | 0.642| 0.565|      0.027|
+|equal    |ratio2 |original (swapped) | 0.647| 0.571|      0.026|
+
+### hetero overall
+
+
+Table: added
+
+|variance           |       THR|
+|:------------------|---------:|
+|corrected          | 0.6102083|
+|original (swapped) | 0.6252917|
+
+
+Table: equal
+
+|variance           |       THR|
+|:------------------|---------:|
+|corrected          | 0.6918889|
+|original (swapped) | 0.6978611|
+null device 
+          1 

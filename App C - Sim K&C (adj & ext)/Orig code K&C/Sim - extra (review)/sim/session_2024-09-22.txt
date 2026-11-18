@@ -1,0 +1,31 @@
+R version 4.3.3 (2024-02-29)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 24.04.1 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
+LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=nl_NL.UTF-8       
+ [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=nl_NL.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=nl_NL.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
+[10] LC_TELEPHONE=C             LC_MEASUREMENT=nl_NL.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Europe/Amsterdam
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] kit_0.0.19         stringr_1.5.1      doSNOW_1.0.20      snow_0.4-4        
+ [5] iterators_1.0.14   foreach_1.5.2      restriktor_0.3-500 matrixStats_1.4.1 
+ [9] remotes_2.5.0      Matrix_1.6-5       MASS_7.3-60.0.1   
+
+loaded via a namespace (and not attached):
+ [1] cli_3.6.3        rlang_1.1.4      ic.infer_1.1-7   stringi_1.8.4    lavaan_0.6-18   
+ [6] glue_1.7.0       pbivnorm_0.6.0   stats4_4.3.3     lpSolve_5.6.21   quadprog_1.5-8  
+[11] grid_4.3.3       mvtnorm_1.3-1    lifecycle_1.0.4  kappalab_0.4-12  compiler_4.3.3  
+[16] codetools_0.2-19 kernlab_0.9-33   lattice_0.22-5   mnormt_2.1.1     parallel_4.3.3  
+[21] magrittr_2.0.3   tools_4.3.3      boot_1.3-30     

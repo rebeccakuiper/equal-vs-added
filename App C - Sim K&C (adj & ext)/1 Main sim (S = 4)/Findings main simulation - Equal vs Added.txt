@@ -1,0 +1,31 @@
+Findings: Equal vs Added in the main simulation of the Added paper (S = 4 studies)
+==================================================================================
+Re-run of the original simulation (same design and code), N = 25, 50, 75, 100, 150
+(216,000 iterations); N = 200-1000 not re-run.
+Check: the Added results of the re-run reproduce the original ones (overall THR .621 vs .623;
+per set/N/R2/rho/model/ratio within about .005; see process_output_main.txt).
+
+THR (true hypothesis rate)                     Added   Equal
+overall                                          .62     .71
+true hypothesis = informative hypothesis         .76     .66
+true hypothesis = failsafe (Hu / complement)     .41     .79
+'confidently wrong' (weight Ht < .05)            .11     .02
+
+THR per set (article numbering), N = 25 -> 150:
+Set 1 (H0, H+, H-)          Added .46 -> .74   Equal .74 -> .90  (Added prefers H0 when R2 is small)
+Set 4 (H+, H-)              identical (.80 -> .93; same complexity of H+ and H-)
+Sets 2/5 (with Hu)          Added .43-.58 -> .72-.76   Equal .44-.45 -> .67-.68
+Set 7 (H vs complement)     Added .81 -> .91   Equal .48 -> .69
+Sets 3/6 (Hu mostly true)   Added .17-.24 -> .41-.43   Equal .63 -> .76-.77
+Set 8 (complement true)     Added .67 -> .78   Equal .79 -> .88
+(see analyse_output_main.txt for all tables; images/ for the plots in the Added-article style)
+
+Hetero condition with the CORRECT probit/logit error variances (4 - ..., 5 - ...;
+compare_hetero_output.txt): THR changes by at most .03 (overall Added .63 -> .61, Equal .70 -> .69).
+
+Conclusion: with S = 4 studies, Equal is the conservative approach: better when a larger
+hypothesis (failsafe, or H+/H- versus H0) is true, worse when a small informative hypothesis
+is true, and (much) less often confidently wrong. Together with the extra simulation (S = 20),
+where Equal (practically) always prefers the failsafe, this matches the simulation in the
+Equal-vs-Added paper (Section 6): the larger S, the more Equal is biased toward the failsafe.
+These results are reported in Appendix C of the Equal-vs-Added paper (Figure 8; folder 3).

@@ -1,0 +1,64 @@
+Findings: Equal vs Added in the extra simulation (based on the review)
+=====================================================================
+Design: 20 studies (hetero: probit, linear, and logit models), rho = .25, ratio1/ratio2,
+true R2 = .02, .15, .25, N per study = 25, 75, 200, 100 iterations per condition.
+Set 5 (article Set 5): H1: b1>b2>b3, H2: b1<b2 & b1>b3, Hu.  Set 7 (article Set 4): H1 vs its complement.
+inverse_ratio = 0: H1 true (as analysed in the Added paper).
+inverse_ratio = 1: H1 NOT true (b1<b2<b3): Hu (set 5) resp. the complement (set 7) is true;
+                   this case was not analysed in Kuiper & Clapper.
+Outlier: none / 'inverse' (last study inverse ratio, R2 = .02) / 'extreme' (inverse ratio, R2 = .25).
+THR = true hypothesis rate; medWt = median weight of the true hypothesis;
+'conf. wrong' = weight of the true hypothesis < .05.
+
+THR (median weight true hyp.) [conf. wrong]
+                       ------------- Added -------------   ------------- Equal -------------
+H1 true, no outlier,   set 5: .88 (1.00) [.02]   set 7: .99 (1.00) [.00]  | set 5: .07 (.01) [.70]  set 7: .20 (.02) [.60]
+H1 true, inv. outlier, set 5: .88 (1.00) [.03]   set 7: .99 (1.00) [.00]  | set 5: .04 (.01) [.72]  set 7: .19 (.01) [.61]
+H1 true, ext. outlier, set 5: .88 (1.00) [.03]   set 7: .98 (1.00) [.00]  | set 5: .02 (.00) [.78]  set 7: .17 (.01) [.65]
+H1 NOT true, no outl., set 5: .38 (.02)  [.53]   set 7: .70 (.99)  [.16]  | set 5: 1.00 (1.00) [.00] set 7: 1.00 (1.00) [.00]
+(with an outlier study, the H1-NOT-true results are practically the same)
+
+Per N and R2 (no outlier): see THR_overview_extra_Added_vs_Equal.csv. E.g., H1 true:
+Equal's THR is at most .35 (set 5) and .70 (set 7), reached only for N = 200 and R2 = .25;
+for N = 25 it is (almost) 0. Added's THR is .61-1.00, increasing with N and R2.
+H1 NOT true: Equal 1.00 everywhere; Added .02-.93 (set 5) and .23-1.00 (set 7),
+low for small N and/or R2 (e.g., set 5, N = 25: .02/.14/.25 for R2 = .02/.15/.25).
+In set 5, when Added is wrong, it mostly selects H2 (and sometimes even H1, the reverse of the true ordering).
+
+Conclusions
+- With 20 studies, Equal is extremely conservative: it practically always selects the
+  failsafe (Hu / complement). This gives a perfect THR when the informative hypothesis is
+  false, but an (almost) zero THR when it is true; and it is then mostly confidently wrong
+  (60-78% of the iterations a weight < .05 for the true H1).
+- Added is the mirror image: very good when H1 is true (also robust to one outlier study),
+  but poor when H1 is not true and the studies are small/effects weak; then it supports a
+  false informative hypothesis, often with (almost) full support (set 5: 53% conf. wrong).
+- One outlier study hardly changes the results of either approach (with 20 studies).
+- This matches the simulation of the Equal-vs-Added paper (Section 6, S = 20): Equal favors
+  the larger failsafe (more so with more and smaller studies), Added favors the smallest
+  hypothesis when combining underpowered studies. The Equal problem is even more extreme here
+  than in Section 6, because effects are smaller (R2 <= .25, with logit/probit studies),
+  Hu is in the set (set 5), and N per study is small.
+- 4 versus 20 studies (as in the original analyse_results.R: main simulation, sets 5 and 8,
+  hetero, ratio1/2, rho = .25; here N = 25 and 75, since the re-run covers N <= 150):
+  4 studies: THR Added .82, Equal .46 (median weight true hyp. .82 vs .41);
+  20 studies (N = 25, 75, 200): THR Added .88 (set 5) / .99 (set 7), Equal .07 / .20
+  (for N = 25 and 75 only, Equal is even lower).
+  So, with more studies, Added improves when H1 is true, while Equal deteriorates (its bias
+  toward the failsafe grows with the number of studies).
+- NB: in the hetero studies, the probit and logit error variances were swapped in
+  estimate_betas() (see folder 1, rerun_functions_hetero_corrected.R); this changes the
+  effect size of the probit (larger) and logit (smaller) studies, not which hypothesis is true.
+
+Results with the corrected probit/logit error variances
+=======================================================
+The extra simulation was re-run with the correct variances (rerun_simulation_extra_corrected.R;
+results/, data/*_corrected.RData, images_corrected/, THR_overview_extra_Added_vs_Equal_corrected.csv,
+analyse_output_extra_corrected.txt). The results hardly change, e.g. (all outlier types):
+                          Added (orig -> corr)        Equal (orig -> corr)
+H1 true,     set 5:       THR .88 -> .88              .04 -> .03
+H1 true,     set 7:       THR .99 -> .98              .19 -> .16
+H1 not true, set 5:       THR .38 -> .36              1.00 -> 1.00
+H1 not true, set 7:       THR .70 -> .69              1.00 -> 1.00
+4 studies (corrected hetero, N = 25 and 75): THR Added .81, Equal .45.
+So, the conclusions above do not change.
